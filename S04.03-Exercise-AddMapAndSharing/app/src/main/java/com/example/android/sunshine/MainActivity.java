@@ -220,6 +220,16 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             loadWeatherData();
             return true;
         }
+        else if (id == R.id.open_map) {
+            Uri loc = Uri.parse("geo:0,0?q=1600 Ampitheatre Parkway, CA");
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(loc);
+
+            if(intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
 
         // TODO (2) Launch the map when the map menu item is clicked
 
